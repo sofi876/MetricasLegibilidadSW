@@ -1,0 +1,1023 @@
+@inproceedings{Mi2018b,
+abstract = {The process of classifying a piece of source code into a Readable or Unreadable class is referred to as Code Readability Classification. To build accurate classification models, existing studies focus on handcrafting features from different aspects that intuitively seem to correlate with code readability, and then exploring various machine learning algorithms based on the newly proposed features. On the contrary, our work opens up a new way to tackle the problem by using the technique of deep learning. Specifically, we propose IncepCRM, a novel model based on the Inception architecture that can learn multi-scale features automatically from source code with little manual intervention. We apply the information of human annotators as the auxiliary input for training IncepCRM and empirically verify the performance of IncepCRM on three publicly available datasets. The results show that: 1) Annotator information is beneficial for model performance as confirmed by robust statistical tests (i.e., the Brunner-Munzel test and Cliff's delta); 2) IncepCRM can achieve an improved accuracy against previously reported models across all datasets. The findings of our study confirm the feasibility and effectiveness of deep learning for code readability classification.},
+address = {New York, New York, USA},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+Fuente: ACM
+Ecuaci{\'{o}}n: readab* AND software
+
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*))
+since 2015
+
+SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Mi, Qing and Keung, Jacky and Xiao, Yan and Mensah, Solomon and Mei, Xiupei},
+booktitle = {Proceedings of the 22nd International Conference on Evaluation and Assessment in Software Engineering 2018 - EASE'18},
+doi = {10.1145/3210459.3210473},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/mi2018.pdf:pdf},
+isbn = {9781450364034},
+keywords = {APRENDIZAJE PROFUNDO,Code Readability Classification,Deep Learning,Empirical Software Engineering,INCEPTION,IncepCRM,Inception Architecture,LEGIBILIDAD,MODELOS},
+mendeley-tags = {APRENDIZAJE PROFUNDO,INCEPTION,IncepCRM,LEGIBILIDAD,MODELOS},
+pages = {139--144},
+publisher = {ACM Press},
+title = {{An Inception Architecture-Based Model for Improving Code Readability Classification}},
+url = {http://dl.acm.org/citation.cfm?doid=3210459.3210473},
+year = {2018}
+}
+@inproceedings{Posnett2011,
+address = {New York, New York, USA},
+annote = {[12] POSNETT
+
+legibilidad del software es una propiedad que influencia en que tan facil una pieza de codigo fuente puede ser leida y comprendida. C{\'{o}}mo la legibilidad puede afectar el mantenimiento, la calidad, etx, los programadores son mucho m{\'{a}}s concientes acerca de la legibilidad del c{\'{o}}digo. Si la funci{\'{o}}n de evaluar autom{\'{a}}ticamente la legibilidad pudiera ser construida, ellos podr{\'{i}}an integrarla dentro de las herramientas de desarrollo y as{\'{i}} estar{\'{i}}an continuamente informados los desarrolladores sobre el nivel de legibilidad de el c{\'{o}}digo.
+
+El ideal es que pudiera automatizarse e integrarse a las herramientas de desarrollo, informando a los desarrolladores el nivel de legibilidad, pero es una propiedad muy subjetiva.
+
+en base al trabajo de Buse, se presenta una simple e intuitiva teoria de legibilidad, basada en el tama{\~{n}}o y entropia del codigo. Usa medidas de tama{\~{n}}o conocidas y m{\'{e}}tricas de Halstead (metricas de la ciencia del sw de halstead 1970). Argumentan que presenta un enfoque m{\'{a}}s teoricamente bien fundado.
+
+La legibilidad es muy importante para los desarrolladores, por su relaci{\'{o}}n con la mantenibilidad, ya que dicen que el codigo que sea legible hoy, probablemente podr{\'{a}} leerse, comprenderse y mantenerse mas f{\'{a}}cil despues. Relacion analoga entre legibilidad y comprensibilidad, donde la primera es el aspecto sintactico y la segunda el semantico. la comparan como una barrera para comprender lo que el programador sinti{\'{o}} cuando lo construyo. entre mas legible, mas debil es esa barrera.
+
+las medidas de percepcion subjetiva, son dificiles porque requieren de estudios humanos (conlleva muchos factores), pero el trabajo de Buse fue una gran contribuci{\'{o}}n, por el uso de un modelo de regresion logistica para predecir la subjetividad.
+
+Se usa el modelo de Buse (modelo de predicci{\'{o}}n estad{\'{i}}stico), adicionando el modelo mejorado de Halstead; juntos estan basados sobre propiedades lexicas. El objetivo es hacerlo mas robusto, teoricamente mejor fundado y usable.
+
+observaciones y mejoras sobre buse:
+- no todas las caracteristicas ayudan a identificar la legibilidad y el modelo podria ser una teroia mas general de legibilidad.
+- debe tenerse en cuenta el tama{\~{n}}o (ej lineas, caractereres, palabras), que puede obtenerse por simple conteo, lo que lleva al trabajo de Halstead's y al nivel de entropia por token y byte.
+
+METRICAS DE HALSTEAD
+Maurice H Halstead introdujo las metricas de complejidad del codigo fuente computadas estadisticamente. Son medidas lexicas calculadas desde conteos de el numero de operadores totales, unicos, operandos totales y unicos. Operadores incluyen metodos, mientras operandos son los participantes en la operaci{\'{o}}n, como los argumentos. De ahi se obtienen las m{\'{e}}tricas:
+- Longitud del programa
+- Vocabulario del programa
+- Volumen
+- Dificultad
+- Esfuerzo
+
+ENTROPIA
+es vista como la complejidad, el grado de desorden o monton de informaci{\'{o}}n en un conjunto de datos. Se calcula desde el conteo de los terminos, asi como el numero de terminos unicos y bytes (suma del numero de ocurrencias de cada termino, en un documento).
+
+MODELO
+eligieron construir un modelo de iniciar con lo minimo e ir adicionando variables, para ir evaluando su impacto en la calidad de el modelo. (modelo preferido para probar hipotesis).
+
+prueban el modelo y comparan resultados con las calificaciones registradas de los participantes.
+Para evaluar la influencia del tama{\~{n}}o en la legibilidad, se usa la correlacion de Spearman.
+En conclusion se dice que el tama{\~{n}}o s{\'{o}}lo, no indica nada sobre la legibilidad, pero usandose en conjunto con otras metricas, puede ayudar a comprender que factores afectan la legibilidad.
+
+metricas con alta correlacion:
+numero de lineas 
+
+con baja:
+identacion
+
+Legibilidad del codigo, depende fuertemente de la informaci{\'{o}}n contenida en el codigo fuente.},
+author = {Posnett, Daryl and Hindle, Abram and Devanbu, Premkumar},
+booktitle = {Proceeding of the 8th working conference on Mining software repositories - MSR '11},
+doi = {10.1145/1985441.1985454},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Posnett, Hindle, Devanbu - 2011 - A simpler model of software readability.pdf:pdf},
+isbn = {9781450305747},
+pages = {73},
+publisher = {ACM Press},
+title = {{A simpler model of software readability}},
+url = {http://portal.acm.org/citation.cfm?doid=1985441.1985454},
+year = {2011}
+}
+@inproceedings{Sedano2016,
+abstract = {Context: One of the factors that leads to improved code maintainability is its readability. When code is difficult to read, it is difficult for subsequent developers to understand its flow and its side effects. They are likely to introduce new bugs while trying to fix old bugs or adding new features. But how do software developers know they have written readable code? Objective: This paper presents a new technique, Code Readability Testing, to determine whether code is readable and evaluates whether the technique increases programmers' ability to write readable code. Method: The researcher conducted a field study using 21 software engineering master students and followed the Code Readability Testing with each student in four separate sessions evaluating different "production ready" software. After the observations, a questionnaire evaluated the programmer's perspective. Results: By following Code Readability Testing, half of the programmers writing "unreadable" code started writing "readable" code after four sessions. Programmers writing "readable" code also improved their ability to write readable code. The study reveals that the most frequent suggestions for increasing code readability are improving variable names, improving method names, creating new methods in order to reduce code duplication, simplifying if conditions and structures, and simplifying loop conditions. The programmers report that readability testing is worth their time. They observe increases in their ability to write readable code. When programmers experience a reader struggling to understand their code, they become motivated to write readable code. Conclusion: This paper defines code readability, demonstrates that Code Readability Testing improves programmers' ability to write readable code, and identifies frequent fixes needed to improve code readability.},
+address = {Estados Unidos},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Sedano, Todd},
+booktitle = {2016 IEEE 29th International Conference on Software Engineering Education and Training (CSEET)},
+doi = {10.1109/CSEET.2016.36},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/Google Scholar/sedano2016.pdf:pdf},
+isbn = {978-1-5090-0765-3},
+keywords = {CARACTERISTICAS,EDUCACION,LEGIBILIDAD,MEJORES PRACTICAS},
+mendeley-tags = {CARACTERISTICAS,EDUCACION,LEGIBILIDAD,MEJORES PRACTICAS},
+month = {apr},
+pages = {111--117},
+publisher = {IEEE},
+title = {{Code Readability Testing, an Empirical Study}},
+url = {http://ieeexplore.ieee.org/document/7474473/},
+year = {2016}
+}
+@inproceedings{Akour2016,
+abstract = {Software maintainability is one of the most factors that used to ensure software quality. It targets the structure of the software rather than its functionality. Hence, code readability is highlighted whenever maintainability is discussed. There is a huge difference between an organized code and a messy code, or between easy to read code and a difficult to read code. This difference can be very subjective but many efforts have been put together in order to formalize it. Therefore, the result was a set of readability factors that have a direct or indirect impact on software readability. These factors measure to which extent readers can understand the text of the software code. Many metrics were developed to generalize the readability score across a set of pieces of code. Unfortunately, not all proposed metrics take into account the possibility of having variable readability factors. This paper tries to investigate to which extent the readability factors considering different application domains. Since readability is very subjective, it will be interesting to see whether it is useful to have specialized readability models that measure this attribute. This also implies looking into the impact of these readability models on measuring software quality. {\textcopyright} 2016 IEEE.},
+annote = {SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab*  AND  software  AND  metric* )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric* ) )  AND  PUBYEAR  {\textgreater}  2014
+
+FUENTE:
+IEEE Xplore
+ECUACION:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*)) 
+ Filters Applied: 
+2015 - 2019
+Metadata Only
+
+* Filtro 1 - Cumple criterios de inclusion: SI
+
+MERGE},
+author = {Akour, Mohammed and Falah, Bouchaib},
+booktitle = {2016 7th International Conference on Computer Science and Information Technology (CSIT)},
+doi = {10.1109/CSIT.2016.7549476},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/akour2016.pdf:pdf},
+isbn = {978-1-4673-8914-3},
+keywords = {DOMINIO,EVOLUCION,FACTORES DE LEGIBILIDAD VARIABLES,LENGUAJE DE PROGRAMACION,METRICAS,application domain,programming paradigms,readability models,software readability},
+mendeley-tags = {DOMINIO,EVOLUCION,FACTORES DE LEGIBILIDAD VARIABLES,LENGUAJE DE PROGRAMACION,METRICAS},
+month = {jul},
+pages = {1--6},
+publisher = {IEEE},
+title = {{Application domain and programming language readability yardsticks}},
+url = {http://ieeexplore.ieee.org/document/7549476/},
+year = {2016}
+}
+@inproceedings{Novais2017,
+abstract = {Each programmer has his own way of programming but some criteria can be applied when analysing code: there are a set of best practices that can be checked, or “not so common” instructions that are mainly used by experts that can be found. Considering that all programs that are going to be compared are correct, it's possible to infer the experience level of the programmer or the proficiency level of the solution. The approach presented in this paper has as main goal to compare sets of solutions to the same problem and infer the programmers profile. This can be used to evaluate the programmer skills, the proficiency on a given language or evaluate programming students. A tool to automatically profiling Java programmers called PP (Programmer Profiler) is presented in this paper as a proof of concept.},
+address = {Portugal},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Novais, Daniel Jos{\'{e}} Ferreira and Pereira, Maria Jo{\~{a}}o Varanda and Henriques, Pedro Rangel},
+doi = {10.15439/2017F147},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/Google Scholar/novais2017.pdf:pdf},
+keywords = {CLUSTERIZACION,LEGIBILIDAD,METRICAS,PERFIL DE PROGRAMADOR},
+mendeley-tags = {CLUSTERIZACION,LEGIBILIDAD,METRICAS,PERFIL DE PROGRAMADOR},
+month = {sep},
+pages = {701--705},
+title = {{Program analysis for Clustering Programmers' Profile}},
+url = {https://fedcsis.org/proceedings/2017/drp/147.html},
+year = {2017}
+}
+@inproceedings{Mannan2018,
+abstract = {We perform a large scale study of 49 open source Java projects, spanning 8296 commits and 1766 files. We find that readability is high in open source projects and does not fluctuate over project's lifetime unlike design quality of a project. Also readability has a non-significant correlation of 0.151 (Kendall's $\tau$ ) with code smell count (indicator of design quality). Since current readability measure is unable to capture the increased difficulty in reading code due to the degraded design quality, our results hint towards the need of a better measurement and modeling of code readability.},
+address = {New York, New York, USA},
+annote = {ACM
+Ecuacion:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*))
+since 2015 
+
+SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Mannan, Umme Ayda and Ahmed, Iftekhar and Sarma, Anita},
+booktitle = {Proceedings of the 4th ACM SIGSOFT International Workshop on NLP for Software Engineering - NL4SE 2018},
+doi = {10.1145/3283812.3283820},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/ACM/Towards understanding code readability and its impact on design quality{\_}mannan2018.pdf:pdf},
+isbn = {9781450360555},
+keywords = {CALIDAD,Code smell,Design quality,EVOLUCION,LEGIBILIDAD,MALOS OLORES,MODELOS,Readability},
+mendeley-tags = {CALIDAD,EVOLUCION,LEGIBILIDAD,MALOS OLORES,MODELOS},
+pages = {18--21},
+publisher = {ACM Press},
+title = {{Towards understanding code readability and its impact on design quality}},
+url = {http://dl.acm.org/citation.cfm?doid=3283812.3283820},
+year = {2018}
+}
+@unpublished{Wulff-Jensen2019,
+abstract = {As shown by several studies, programmers' readability of source code is influenced by its structural and the textual features. In order to assess the importance of these features, we conducted an eye-tracking experiment with programming students. To assess the readability and comprehensibility of code snippets, the test subjects were exposed to four different snippets containing or missing structural and/or textual elements. To assure that all subjects were at an equivalent level of expertise, their programming skills were also evaluated. During the eye-tracking experiment, the subjects were also asked to give a readability and comprehensibility score to each snippet. The absence of textual features showed to increase the average fixation duration. This indicates that for the test subjects the textual features were more essential for the comprehension of the code. Gaze pattern analysis revealed less ordered patterns in the absence of structural features compared to the absence of textual features. {\textcopyright} Springer International Publishing AG, part of Springer Nature 2019.},
+annote = {SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( ( metric*  OR  featur*  OR  factor*  OR  criteria*  OR  model* )  AND  ( software  OR  "code source"  OR  program*  OR  algorithm )  AND  ( readability ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+* F1 Cumple criterios de inclusion: SI
+
+NOTA:
+FALTA EL PDF
+Es un libro y no se puede obtener gratuitamente},
+author = {Wulff-Jensen, Andreas and Ruder, Kevin and Triantafyllou, Evangelia and Bruni, Luis Emilio},
+doi = {10.1007/978-3-319-94866-9_9},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/estudios problema/F3/wulff-jensen2018.pdf:pdf},
+keywords = {CARACTERISTICAS,COMPRENSIBILIDAD,Code features,ESTRUCTURALES,Eye-tracking,LEGIBILIDAD,METODO,Programmer,Programming,Readability,SEGUIMIENTO OCULAR,TEXTUALES},
+mendeley-tags = {CARACTERISTICAS,COMPRENSIBILIDAD,ESTRUCTURALES,LEGIBILIDAD,METODO,SEGUIMIENTO OCULAR,TEXTUALES},
+pages = {91--100},
+title = {{Gaze Strategies Can Reveal the Impact of Source Code Features on the Cognitive Load of Novice Programmers}},
+url = {http://link.springer.com/10.1007/978-3-319-94866-9{\_}9},
+year = {2019}
+}
+@inproceedings{Allamanis2015,
+abstract = {Descriptive names are a vital part of readable, and hence maintainable, code. Recent progress on automatically suggesting names for local variables tantalizes with the prospect of replicating that success with method and class names. However, suggesting names for methods and classes is much more difficult. This is because good method and class names need to be functionally descriptive, but suggesting such names requires that the model goes beyond local context. We introduce a neural probabilistic language model for source code that is specifically designed for the method naming problem. Our model learns which names are semantically similar by assigning them to locations, called embeddings, in a high-dimensional continuous space, in such a way that names with similar embeddings tend to be used in similar contexts. These embeddings seem to contain semantic information about tokens, even though they are learned only from statistical co-occurrences of tokens. Furthermore, we introduce a variant of our model that is, to our knowledge, the first that can propose neologisms, names that have not appeared in the training corpus. We obtain state of the art results on the method, class, and even the simpler variable naming tasks. More broadly, the continuous embeddings that are learned by our model have the potential for wide application within software engineering.},
+address = {New York, New York, USA},
+annote = {ACM
+Ecuacion:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*))
+since 2015
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Allamanis, Miltiadis and Barr, Earl T. and Bird, Christian and Sutton, Charles},
+booktitle = {Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering - ESEC/FSE 2015},
+doi = {10.1145/2786805.2786849},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/allamanis2015.pdf:pdf},
+isbn = {9781450336758},
+keywords = {ASIGNACION AUTOMATICA DE NOMBRES,Coding conventions,JAVA,MODELO DE LENGUAJE NEURONAL LOG-BILINEAR,MODELO DE SUBTOKEN,NOMBRE DE CLASE,NOMBRE DE IDENTIFICADORES,NOMBRE DE METODO,OTRO MODELO AUTOMATICO,naturalness of software},
+mendeley-tags = {ASIGNACION AUTOMATICA DE NOMBRES,JAVA,MODELO DE LENGUAJE NEURONAL LOG-BILINEAR,MODELO DE SUBTOKEN,NOMBRE DE CLASE,NOMBRE DE IDENTIFICADORES,NOMBRE DE METODO,OTRO MODELO AUTOMATICO},
+pages = {38--49},
+publisher = {ACM Press},
+title = {{Suggesting accurate method and class names}},
+url = {http://dl.acm.org/citation.cfm?doid=2786805.2786849},
+year = {2015}
+}
+@article{Coleman2018,
+annote = {* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Coleman, Ron},
+doi = {10.14569/ijacsa.2018.090902},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/estudios problema/Paper{\_}2-Aesthetics{\_}versus{\_}Readability{\_}of{\_}Source{\_}Code.pdf:pdf},
+issn = {2158107X},
+journal = {International Journal of Advanced Computer Science and Applications},
+keywords = {ESTETICA,ESTILOS DE EMBELLECIMIENTO,ESTILOS DE PROGRAMACION,EVOLUCION,LEGIBILIDAD,MEJORES PRACTICAS,METRICAS,about understanding code and,aesthetics is about appreciating,another problem is ontological,been tested,empirically,fractal geometry,one problem is that,programming style,readability,readability is,this view has never},
+mendeley-tags = {ESTETICA,ESTILOS DE EMBELLECIMIENTO,ESTILOS DE PROGRAMACION,EVOLUCION,LEGIBILIDAD,MEJORES PRACTICAS,METRICAS},
+number = {9},
+pages = {12--18},
+title = {{Aesthetics Versus Readability of Source Code}},
+volume = {9},
+year = {2018}
+}
+@inproceedings{Mi2016,
+abstract = {Background: Although many software engineering methodologies and guidelines are provided, it is common that developers apply their very own programming styles to the source code being produced. These individually preferred programming styles are more comprehensive for themselves, but may well conflict with each other. Thus, the problem of stylistic inconsistency is inevitable during the software development process involving multiple developers, the result is undesirable and that will significantly degrade program readability and maintainability. Aims: Given limited understanding in this regard, we perform an empirical analysis for the purpose of quantitatively measuring the inconsistency degree of programming style within a software project team. Method: We first propose stylistic fingerprints, which are represented as a set of attribute-counting-metrics, in an attempt to characterize different programming styles. Then we adopt the hierarchical agglomerative clustering (HAC) technique to quantitatively measuring the proximity of programming style based on six C/C++ open source projects chosen from different application domains. Results: The empirical results demonstrate the feasibility and validity of our fingerprinting methodology. Moreover, the proposed clustering procedure utilizing HAC algorithm with dendrograms is capable of effectively illustrating the inconsistency degree of programming style among source files, which is significant for future research. Conclusions: This study proposed an effective and efficient approach for analyzing programming style inconsistency, supported by a sound theoretical basis for dealing with such a problem. Ultimately improving program readability and therefore reduce the maintenance overhead for software projects. {\textcopyright} 2016 ACM},
+address = {New York, New York, USA},
+annote = {ACM
+Ecuacion: metric* AND code AND source AND readability
+
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*))
+since 2015
+
+SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( metric*  AND  code  AND  source  AND  readability )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Mi, Qing and Keung, Jacky and Yu, Yang},
+booktitle = {Proceedings of the The 12th International Conference on Predictive Models and Data Analytics in Software Engineering - PROMISE 2016},
+doi = {10.1145/2972958.2972963},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/mi2016.pdf:pdf},
+isbn = {9781450347723},
+keywords = {BUENAS PRACTICAS,CLUSTERIZACION,ESTILOS DE PROGRAMACION,LEGIBILIDAD,METRICAS,empirical software engineering,hierarchical agglomerative clustering,programming style,stylistic inconsistency},
+mendeley-tags = {BUENAS PRACTICAS,CLUSTERIZACION,ESTILOS DE PROGRAMACION,LEGIBILIDAD,METRICAS},
+pages = {1--10},
+publisher = {ACM Press},
+title = {{Measuring the Stylistic Inconsistency in Software Projects using Hierarchical Agglomerative Clustering}},
+url = {http://dl.acm.org/citation.cfm?doid=2972958.2972963},
+year = {2016}
+}
+@article{Scalabrino2018,
+abstract = {Unreadable code could compromise program comprehension, and it could cause the introduction of bugs. Code consists of mostly natural language text, both in identifiers and comments, and it is a particular form of text. Nevertheless, the models proposed to estimate code readability take into account only structural aspects and visual nuances of source code, such as line length and alignment of characters. In this paper, we extend our previous work in which we use textual features to improve code readability models. We introduce 2 new textual features, and we reassess the readability prediction power of readability models on more than 600 code snippets manually evaluated, in terms of readability, by 5K+ people. We also replicate a study by Buse and Weimer on the correlation between readability and FindBugs warnings, evaluating different models on 20 software systems, for a total of 3M lines of code.},
+annote = {WoS
+Ecuaci{\'{o}}n:
+
+(ALL=(readab* AND software)) AND IDIOMA: (English OR Spanish)
+
+(ALL=((metric* OR featur* OR factor* OR criteria* OR model*) AND (software OR "code source" OR program* OR algorithm) AND (readability))) AND IDIOMA: (English OR Spanish)
+
+
+(ALL=(readability AND (software OR code) AND (metric* OR classification OR model*))) AND IDIOMA: (English OR Spanish)
+Refinado por: CATEGOR{\'{I}}AS DE WEB OF SCIENCE: ( COMPUTER SCIENCE SOFTWARE ENGINEERING OR COMPUTER SCIENCE INFORMATION SYSTEMS OR COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE OR COMPUTER SCIENCE THEORY METHODS OR COMPUTER SCIENCE INTERDISCIPLINARY APPLICATIONS OR ENGINEERING MULTIDISCIPLINARY )
+Per{\'{i}}odo de tiempo: 2015-2019.{\'{I}}ndices: SCI-EXPANDED, SSCI, A{\&}HCI, ESCI.
+
+SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI
+
+MERGE: -2},
+author = {Scalabrino, Simone and Linares-V{\'{a}}squez, Mario and Oliveto, Rocco and Poshyvanyk, Denys},
+doi = {10.1002/smr.1958},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/scalabrino2018.pdf:pdf},
+journal = {Journal of Software: Evolution and Process},
+keywords = {CARACTERISTICAS,EVOLUCION,JAVA,LEGIBILIDAD,MACHINE LEARNING,MODELOS,code readability,quality warning prediction,textual analysis},
+mendeley-tags = {CARACTERISTICAS,EVOLUCION,JAVA,LEGIBILIDAD,MACHINE LEARNING,MODELOS},
+month = {jun},
+number = {6},
+pages = {e1958},
+publisher = {John Wiley {\&} Sons, Ltd},
+title = {{A comprehensive model for code readability}},
+url = {http://doi.wiley.com/10.1002/smr.1958},
+volume = {30},
+year = {2018}
+}
+@article{DeRenzis2016a,
+abstract = {Buenas pr{\'{a}}cticas y M{\'{e}}trica para medir la legibilidad de los WSDL, usando WordNet},
+annote = {SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric* ) )  AND  PUBYEAR  {\textgreater}  2014
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readab*  AND  software  AND  metric* )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+WoS
+Ecuaci{\'{o}}n:
+(ALL=(readability AND (software OR code) AND (metric* OR classification))) AND IDIOMA: (English OR Spanish)
+Refinado por: CATEGOR{\'{I}}AS DE WEB OF SCIENCE: ( COMPUTER SCIENCE SOFTWARE ENGINEERING OR COMPUTER SCIENCE INFORMATION SYSTEMS OR COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE OR COMPUTER SCIENCE THEORY METHODS OR COMPUTER SCIENCE INTERDISCIPLINARY APPLICATIONS OR ENGINEERING MULTIDISCIPLINARY )
+Per{\'{i}}odo de tiempo: 2015-2019.{\'{I}}ndices: SCI-EXPANDED, SSCI, A{\&}HCI, ESCI.
+
+* Filtro 1 - Cumple criterios de inclusion: SI
+
+MERGE: -1},
+author = {{De Renzis}, Alan and Garriga, Martin and Flores, Andres and Cechich, Alejandra and Mateos, Cristian and Zunino, Alejandro},
+doi = {10.1016/j.csi.2016.09.005},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/derenzis2016.pdf:pdf},
+issn = {09205489},
+journal = {Computer Standards {\&} Interfaces},
+keywords = {BUENAS PRACTICAS,CARACTERISTICAS,Domain Independent,LEGIBILIDAD,METRICAS,Readability,WEB SERVICES,WSDL,Web Service Descriptions,WordNet},
+mendeley-tags = {BUENAS PRACTICAS,CARACTERISTICAS,LEGIBILIDAD,METRICAS,WEB SERVICES,WSDL},
+month = {feb},
+pages = {124--141},
+title = {{A domain independent readability metric for web service descriptions}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/S0920548916300782},
+volume = {50},
+year = {2016}
+}
+@article{Borstler2016,
+abstract = {Software readability and comprehension are important factors in software maintenance. There is a large body of research on software measurement, but the actual factors that make software easier to read or easier to comprehend are not well understood. In the present study, we investigate the role of method chains and code comments in software readability and comprehension. Our analysis comprises data from 104 students with varying programming experience. Readability and comprehension were measured by perceived readability, reading time and performance on a simple cloze test. Regarding perceived readability, our results show statistically significant differences between comment variants, but not between method chain variants. Regarding comprehension, there are no significant differences between method chain or comment variants. Student groups with low and high experience, respectively, show significant differences in perceived readability and performance on the cloze tests. Our results do not show any significant relationships between perceived readability and the other measures taken in the present study. Perceived readability might therefore be insufficient as the sole measure of software readability or comprehension. We also did not find any statistically significant relationships between size and perceived readability, reading time and comprehension.},
+annote = {FUENTE:
+IEEE Xplore
+ECUACION:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*)) 
+ Filters Applied: 
+2015 - 2019
+Metadata Only
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Borstler, Jurgen and Paech, Barbara},
+doi = {10.1109/TSE.2016.2527791},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/borstler2016.pdf:pdf},
+journal = {IEEE Transactions on Software Engineering},
+keywords = {CADENA DE METODOS,CARACTERISTICAS,COMENTARIOS,COMPRENSIBILIDAD,JAVA,LEGIBILIDAD,Software readability,comments,experiment,method chains,software comprehension,software measurement},
+mendeley-tags = {CADENA DE METODOS,CARACTERISTICAS,COMENTARIOS,COMPRENSIBILIDAD,JAVA,LEGIBILIDAD},
+month = {sep},
+number = {9},
+pages = {886--898},
+title = {{The Role of Method Chains and Comments in Software Readability and Comprehension—An Experiment}},
+url = {http://ieeexplore.ieee.org/document/7404062/},
+volume = {42},
+year = {2016}
+}
+@inproceedings{Mi2018,
+abstract = {The focus was on incorporating game-based mechanisms to enable students with positive attitudes towards a more interesting learning process. A complete incentive and reward model is proposed in the study together with a combination of both intrinsic and extrinsic motivators identified. To ensure its dynamic efficacy, a field experiment was carried out to compare GamiCRS with its nongamified counterparts and to evaluate learning outcomes. The empirical results show a positive effect towards the application of GamiCRS in the classroom environment. As many learning activities in software engineering are typically challenging and seldom amusing, gamification can thus be applied as a compelling addition to supporting a wider variety of teaching tactics.},
+address = {Hong Kong},
+annote = {SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+FUENTE:
+IEEE Xplore
+ECUACION:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*)) 
+ Filters Applied: 
+2015 - 2019
+Metadata Only
+
+* Filtro 1 - Cumple criterios de inclusion: SI
+
+MERGE: -1},
+author = {Mi, Qing and Keung, Jacky and Mei, Xiupei and Xiao, Yan and Chan, W. K.},
+booktitle = {2018 International Symposium on Educational Technology (ISET)},
+doi = {10.1109/ISET.2018.00062},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/IEEE/mi2018.pdf:pdf},
+isbn = {978-1-5386-7209-9},
+keywords = {BUENAS PRACTICAS,Code Readability,Crowdsourcing,EDUCACION,Education,GAMIFICACION,Gamification,LEGIBILIDAD,Motivation,Technology Acceptance Model},
+mendeley-tags = {BUENAS PRACTICAS,EDUCACION,GAMIFICACION,LEGIBILIDAD},
+month = {jul},
+pages = {250--254},
+publisher = {IEEE},
+title = {{A Gamification Technique for Motivating Students to Learn Code Readability in Software Engineering}},
+url = {https://ieeexplore.ieee.org/document/8456230/},
+year = {2018}
+}
+@inproceedings{Liu2015,
+abstract = {Comments to describe the intent of the code is crucial to measure the program readability, especially for the methods and their comments in a program. Existing program readability techniques mainly focus on matching method and its comments on whether there is the same content between them. But these techniques cannot accurately analyze polysemy and synonyms in the program. In this paper, we propose an approach to analyze program readability based on WordNet, which is able to expand the range of keyword search and solve the problem of semantic ambiguity. Based on the same semantic query function of WordNet, we match keywords between comments and methods, and analyze the readability of the classes and packages in a program},
+address = {New York, New York, USA},
+annote = {Fuente: ACM
+Ecuaci{\'{o}}n: readab* AND software
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Liu, Yangchao and Sun, Xiaobing and Duan, Yucong},
+booktitle = {Proceedings of the 19th International Conference on Evaluation and Assessment in Software Engineering - EASE '15},
+doi = {10.1145/2745802.2745837},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/liu2015.pdf:pdf},
+isbn = {9781450333504},
+keywords = {AR,CARACTERISTICAS,COMENTARIOS,HERRAMIENTA,LEGIBILIDAD,METRICAS,RiC,RiG,WORDNET},
+mendeley-tags = {AR,CARACTERISTICAS,COMENTARIOS,HERRAMIENTA,LEGIBILIDAD,METRICAS,RiC,RiG,WORDNET},
+pages = {1--2},
+publisher = {ACM Press},
+title = {{Analyzing program readability based on WordNet}},
+url = {http://dl.acm.org/citation.cfm?doid=2745802.2745837},
+year = {2015}
+}
+@article{Chen2018,
+abstract = {Coding conventions are a set of coding guidelines used by software developers to improve the readability of source code and increase software maintainability. Understanding coding conventions has become an indispensable discipline in software engineering; however, many university-level programming courses fail to prepare their students in this regard. In this study, we examined the distribution of coding convention violations in the assignments of programming courses where coding conventions are neglected. We then developed an automated system by which students can submit their programs and obtain immediate feedback on their coding assignments. Moreover, the system reduces the workload on instructors by providing insight into the quality of the code presented by students.},
+annote = {From Duplicate 1 (An Automated Assessment System for Analysis of Coding Convention Violations in Java Programming Assignments - CHEN, HSI-MIN; CHEN, WEI-HAN; LEE, CHI-CHEN)
+
+SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+* Filtro 1 - Cumple criterios de inclusion: SI
+
+NOTA:
+El doi no permite la descarga por SciHub, y la pagina donde se encuentra el procedimiento esta en un idioma asiatico.
+
+From Duplicate 2 (An automated assessment system for analysis of coding convention violations in Java programming assignments* - Chen, Hsi Min; Chen, Wei Han; Lee, Chi Chen)
+
+SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Chen, Hsi Min and Chen, Wei Han and Lee, Chi Chen},
+doi = {10.6688/JISE.201809_34(5).0006},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/estudios problema/JISE{\_}201805{\_}062.pdf:pdf},
+issn = {10162364},
+journal = {Journal of Information Science and Engineering},
+keywords = {CONVENCIONES DE CODIFICACION,Code quality,Code readability,Coding convention,JAVA,MEJORES PRACTICAS,Program assessment,Software engineering,Software maintainability},
+mendeley-tags = {CONVENCIONES DE CODIFICACION,JAVA,MEJORES PRACTICAS},
+number = {5},
+pages = {1203--1221},
+publisher = {中華民國計算語言學學會},
+title = {{An automated assessment system for analysis of coding convention violations in Java programming assignments*}},
+url = {http://www.airitilibrary.com/Publication/alDetailedMesh?DocID=10162364-201809-201810020014-201810020014-1203-1221},
+volume = {34},
+year = {2018}
+}
+@inproceedings{Butler2010,
+annote = {[18]
+Nombres de los identificadores: son creadors por dise{\~{n}}adores y programadores y reflejan su comprensi{\'{o}}n, congnici{\'{o}}n e idiosincracia.
+
+Hipotesis del trabajo: Una pobre calidad en los nombres de los identificadores es una barrera para la comprensi{\'{o}}n del programa, lo que indica falta de entendimiento del problema o la solucion dada en el codigo fuente, lo que se traduce finalmente en una pobre calidad del software.
+
+- Los nombres compuestos de diccionario de palabras, son mas faciles de comprender que aquellos abreviados o con simples letras.
+- los desarrolladores son m{\'{a}}s reacios a cambiar los nombres de los identificadores que el codigo fuente.
+
+Deissenboeck y Pizka [1] desarrollaron un modelo formal para la sem{\'{a}}ntica de los nombres de los identificadores, en el que cada concepto est{\'{a}} representado por un {\'{u}}nico identificador en un programa. El modelo excluye el uso de hom{\'{o}}nimos y sin{\'{o}}nimos, lo que reduce las oportunidades de confusi{\'{o}}n. Los autores encontraron que el modelo es una herramienta efectiva para resolver las dificultades con los nombres de los identificadores encontrados durante el desarrollo del programa.
+
+Abebe et al. [15] desarroll{\'{o}} un sistema para reconocer los "malos olores del l{\'{e}}xico" (fallas gramaticales y de otro tipo) en los identificadores, identificando as{\'{i}} los nombres de los identificadores para una posible refactorizaci{\'{o}}n.
+
+Buse y Weimer [10] desarrollaron una m{\'{e}}trica de legibilidad para Java, derivado de mediciones de, entre otros, el n{\'{u}}mero de par{\'{e}}ntesis y llaves, la longitud de la l{\'{i}}nea, el n{\'{u}}mero de l{\'{i}}neas en blanco, y el n{\'{u}}mero, la frecuencia y la longitud del identificador.
+
+IDENTIFICADORES DE CALIDAD
+para el estudio de identificar nombres de calidad, se enfocan en el uso de los elementos del lenguaje natural, ignorando el tema de contenido semantico y el uso de la gramatica.
+
+- Relf deriv{\'{o}} un conjunto de veinti{\'{u}}n pautas de estilo de nombres identificadores para Ada y Java de la literatura de programaci{\'{o}}n. Combino tipografia y un enfoque simple para el lenguaje natural.
+
+GUIAS DE ESTILO APLICADAS A LOS NOMBRES DE LOS IDENTIFICADORES:
+* Anomalia de capitalizaci{\'{o}}n
+*Palabras excesivas (max 4 palabras)
+*SUBRAYADO EXTERNO
+*LONGITUD DEL NOMBRE
+* Anomalia de la convenci{\'{o}}n del nombre
+* palabras que no estan en el diccionario (diccionario de palabras en ingles)
+* numero de palabras: nombre compuesto de 2 a 4 palabras.
+*nombre numerico para un identificador: No debe llamarse ejm forty{\_}one
+* nombres cortos: no deberian tener menos de 8 caracteres a excepcion de una lista.
+* tipo de codificaci{\'{o}}n: no deberia usarse notacion hungara o similar.
+
+CALIDAD DEL C{\'{O}}DIGO FUENTE
+objetivo del trabajo es medir la calidad del codigo fuente en una forma que refleje la influencia del programador y el posible impacto en el lector. Para medir usan la complejidad ciclomatica y el indice de mantenimiento de 3 metricas (MI).
+MI = 171−5.2×ln(HV)−0.23×V(G)−16.2×ln(LOC)
+Donde: 
+LOC is the number of lines of code, V(G) is the cyclomatic complexity and HV is the Halstead Volume.
+
+Para realizar las mediciones usan la herramienta de analisis de codigo estatico FindBugs.
+
+METODOLOGIA
+A. coleccion de datos
+
+La legibilidad del c{\'{o}}digo fuente se evalu{\'{o}} utilizando una herramienta de medici{\'{o}}n de legibilidad desarrollada por Buse y Weimer [10]. La m{\'{e}}trica de legibilidad sigue una distribuci{\'{o}}n bimodal y se interpreta como un clasificador binario que identifica el c{\'{o}}digo fuente como 'm{\'{a}}s legible' o 'menos legible'
+
+B. analisis estadistico
+Analizando sensitividad y la especificidad.
+
+CONCLUSIONES
+- una pobre calidad en los nombres de los identificadores esta fuertemente relacionada con mas complejidad, menos legibilidad y menos mantenibilidad del codigo fuente.},
+author = {Butler, S and Wermelinger, M and {Yijun Yu} and Sharp, H},
+booktitle = {2010 14th European Conference on Software Maintenance and Reengineering},
+doi = {10.1109/CSMR.2010.27},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Butler et al. - 2010 - Exploring the Influence of Identifier Names on Code Quality An Empirical Study.pdf:pdf},
+isbn = {978-1-61284-369-8},
+month = {mar},
+pages = {156--165},
+publisher = {IEEE},
+title = {{Exploring the Influence of Identifier Names on Code Quality: An Empirical Study}},
+url = {http://ieeexplore.ieee.org/document/5714430/},
+year = {2010}
+}
+@incollection{Choi2018,
+abstract = {Software maintenance accounts for a large portion of the software life cycle cost. In the software maintenance phase, comprehending the legacy source code is inevitable, which takes most of the time. Source code readability is a metric of the extent of source code comprehension. The better the code is readable, the easier it is for code readers to comprehend the system based on the source code. This paper proposes an enhanced source code readability metric to quantitative measure the extent of code readability, which is more enhanced measurement method than previous research that dichotomously judges whether the source code was readable or not. As an evaluation, we carried out a survey and analyzed them with two-way linear regression analysis to measure the extent of source code readability. {\textcopyright} Springer International Publishing AG, part of Springer Nature 2018.},
+annote = {SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab*  AND  software  AND  metric* )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric* ) )  AND  PUBYEAR  {\textgreater}  2014
+
+FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Choi, Sangchul and Kim, Suntae and Lee, Jeong-Hyu and Kim, JeongAh and Choi, Jae-Young},
+doi = {10.1007/978-3-319-95171-3_32},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/Google Scholar/choi2018.pdf:pdf},
+keywords = {CARACTERISTICAS,EVOLUCION,JAVA,LEGIBILIDAD,METRICAS,MODELOS},
+mendeley-tags = {CARACTERISTICAS,EVOLUCION,JAVA,LEGIBILIDAD,METRICAS,MODELOS},
+month = {may},
+pages = {410--421},
+publisher = {Springer, Cham},
+title = {{Measuring the Extent of Source Code Readability Using Regression Analysis}},
+url = {http://link.springer.com/10.1007/978-3-319-95171-3{\_}32},
+year = {2018}
+}
+@inproceedings{Fakhoury2018,
+abstract = {It has been well documented that a large portion of the cost of any software lies in the time spent by developers in understanding a program's source code before any changes can be undertaken. One of the main contributors to software comprehension, by subsequent developers or by the authors themselves, has to do with the quality of the lexicon, (i.e., the identifiers and comments) that is used by developers to embed domain concepts and to communicate with their teammates. In fact, previous research shows that there is a positive correlation between the quality of identifiers and the quality of a software project. Results suggest that poor quality lexicon impairs program comprehension and consequently increases the effort that developers must spend to maintain the software. However, we do not yet know or have any empirical evidence, of the relationship between the quality of the lexicon and the cognitive load that developers experience when trying to understand a piece of software. Given the associated costs, there is a critical need to empirically characterize the impact of the quality of the lexicon on developers' ability to comprehend a program. In this study, we explore the effect of poor source code lexicon and readability on developers' cognitive load as measured by a cutting-edge and minimally invasive functional brain imaging technique called functional Near Infrared Spectroscopy (fNIRS). Additionally, while developers perform software comprehension tasks, we map cognitive load data to source code identifiers using an eye tracking device. Our results show that the presence of linguistic antipatterns in source code significantly increases the developers' cognitive load. {\textcopyright} 2018 ACM.},
+address = {New York, New York, USA},
+annote = {SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Fakhoury, Sarah and Ma, Yuzhan and Arnaoudova, Venera and Adesope, Olusola},
+booktitle = {Proceedings of the 26th Conference on Program Comprehension - ICPC '18},
+doi = {10.1145/3196321.3196347},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/Google Scholar/fakhoury2018.pdf:pdf},
+isbn = {9781450357142},
+keywords = {C++,CARACTERISTICAS,CARGA COGNITIVA,JAVA,LEGIBILIDAD,SEGUIMIENTO OCULAR,fNIRS},
+mendeley-tags = {C++,CARACTERISTICAS,CARGA COGNITIVA,JAVA,LEGIBILIDAD,SEGUIMIENTO OCULAR,fNIRS},
+pages = {286--296},
+publisher = {ACM Press},
+title = {{The effect of poor source code lexicon and readability on developers' cognitive load}},
+url = {http://dl.acm.org/citation.cfm?doid=3196321.3196347},
+year = {2018}
+}
+@inproceedings{Sampaio2016,
+annote = {[19]
+
+Meta principal del trabajo: desarrollar un conjunto de buenas practicas para la legibilidad del software para ser usada en POO en programas de educaci{\'{o}}n superior (portugal).
+
+REVISI{\'{O}}N DE LITERATURA
+
+{\textless}tabla donde resumen una lista de buenas y malas practicas{\textgreater}
+
+PROCEDIMIENTO
+Dise{\~{n}}aron una encuesta para realizar a profesores de programaci{\'{o}}n, sobre la importancia de ense{\~{n}}ar a estudiantes buenas y malas practicas de legibilidad en la programaci{\'{o}}n. Califican cada punto de la lista de la encuesta (1 -no importante a 5 - muy importante).
+
+PARTICIPANTES
+profesores de 44 programas de educaci{\'{o}}n superior (contactados mediante el ministerio de educaci{\'{o}}n). Encuesta online, disponible durante 1 mes. 33 profesores respondieron.
+
+Las respuestas se evaluaron con el coeficiente de la correlaci{\'{o}}n de Spearman.
+
+RESULTADOS
+Los profesores en general, reconocen la imporancia de la ense{\~{n}}anza de las buenas practicas para la legibilidad del codigo fuente.
+Lista de buenas practicas, producto de la revisi{\'{o}}n de la literatura.
+
+RECOMENDACIONES
+Mejorar la lista de buenas practicas obtenida en este trabajo.},
+author = {Sampaio, Isabel Braga and Barbosa, Luis},
+booktitle = {2016 7th International Conference on Information and Communication Systems (ICICS)},
+doi = {10.1109/IACS.2016.7476069},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Sampaio, Barbosa - 2016 - Software readability practices and the importance of their teaching.pdf:pdf},
+isbn = {978-1-4673-8614-2},
+month = {apr},
+pages = {304--309},
+publisher = {IEEE},
+title = {{Software readability practices and the importance of their teaching}},
+url = {http://ieeexplore.ieee.org/document/7476069/},
+year = {2016}
+}
+@inproceedings{Scalabrino2017,
+abstract = {—Program understanding plays a pivotal role in soft- ware maintenance and evolution: a deep understanding of code is the stepping stone for most software-related activities, such as bug fixing or testing. Being able to measure the understandability of a piece of code might help in estimating the effort required for a maintenance activity, in comparing the quality of alternative implementations, or even in predicting bugs. Unfortunately, there are no existing metrics specifically designed to assess the understandability of a given code snippet. In this paper, we perform a first step in this direction, by studying the extent to which several types of metrics computed on code, documentation, and developers correlate with code understandability. To perform such an investigation we ran a study with 46 participants who were asked to understand eight code snippets each.We collected a total of 324 evaluations aiming at assessing the perceived understandability, the actual level of understanding, and the time needed to understand a code snippet. Our results demonstrate that none of the (existing and new) metrics we considered is able to capture code understandability, not even the ones assumed to assess quality attributes strongly related with it, such as code readability and complexity. Index Terms—Software metrics, Code understandability, Em- pirical study, Negative result},
+annote = {[11] SCALABRINO
+
+
+poder medir la legibilidad de un fragmento de codigo, puede ayudar a estimar el esfuerzo requerido para una actividad de mantenimiento.
+
+NO EXISTEN m{\'{e}}tricas espec{\'{i}}ficamente dise{\~{n}}adas para evaluar la comprensibilidad de un fragmento de codigo. Este documento lo intenta.
+
+estudio con 46 participantes, evaluando 8 fragmentos cada uno, cuyo objetivo era evaluar la comprensibilidad percibida, nivel real de comprensi{\'{o}}n y tiempo necesario para comprenderlo.
+
+La comprension profunda del codigo es esencial (muy importante) para desarrollar mejoras, corregir errores o redise{\~{n}}ar el codigo. Los estudios muestran que los desarrolladores gastan la mayor parte del tiempo, comprendiendo el c{\'{o}}digo (70{\%} aprox). 
+
+Faltan m{\'{e}}tricas para evaluar objetivamente la comprensibilidad de una pieza de codigo y los factores que se creen influyen en en {\'{e}}l, estan vinculados a creencias comunes, sin evidencia s{\'{o}}lida. Un aspecto relacionado con la comprensibilidad es la Legibilidad.
+
+varios investigadores han propuesto varias metricas y modelos para evaluar la legibilidad (buse y weimer; posnett t hindle; dorn; daka, cmapos, fraser, weimer y dorn; scalabrino). Las metricas y modelos, son generalmente evaluados por su correlacion con la percepcion de legibilidad en los desarrolladores.
+
+*BUSE Y WEIMER
+aspectos estructurales del codigo fuente: numero de caminos, ciclos, operadores, lineas en blanco, comentarios)
+metricas: longitud de la linea.
+100 fragmentos, 120 participantes = 12000 juicios
+
+* POSNETT
+propone reducir los aspectos evaluados por buse y weimer.
+metricas: token entropia y volumen de Halstead's
+evalua los mismos datos de Buse: 1200 juicios.
+Es mas acertado que el de Buse.
+
+*DORN
+Introduce el modelo de legibilidad: conjunto amplio de caracter{\'{i}}sticas agrupadas en 4 categorias: visual, espacial, alineaci{\'{o}}n y linguistica.
+Ademas de lo estructural, adiciona los aspectos que representan y modelan como se lee el codigo en la pantalla (resaltado de sintaxis, estandares de nomenclatura variable y alineaci{\'{o}}n de operadores.
+lenguajes: java, python y CUDA
+360 fragmentos.
+Es mas acertado que el de Buse.
+metricas: mide el espacio con la transformacion discreta de furier DFT: area absoluta y relativa de caracteres en las categorias, alineacion de caracteres en las lineas, numero de identificadores continen palabras del diccionario
+
+*SCALABRINO
+propone y evalua un conjunto de caracter{\'{i}}sticas basadas en el an{\'{a}}lisis lexico del codigo fuente (consistencia entre el codigo fuente y los comentarios, especificidad de los identificadores, coherencia textual, legibilidad de los comentarios).
+datos:
+- los de buse y weimer
+- los de dorn
+- nuevo de 200 fragmentos de java, evaluados por 9 participantes.
+resultados: la combinacion de las caracter{\'{i}}sticas estructurales y textuales, mejoran la precisi{\'{o}}n de los modelos de legibilidad.
+metricas:
+NMI identificadores de significado estrecho, NM numero de significados, terminos de identificadores en el diccionario ITID y coherencia textual TC.
+se calculan linea por linea, identificador por identificador o bloque por bloque.
+los autores agregan las medidas usando maximos, minimos y promedios.
+
+METODO
+a. coleccion de datos
+b. metodo de analisis
+c. paquete de replicacion (publican los datos para estudios futuros)
+
+RESULTADOS
+metrica de longitud maxima de linea, tiene la mas alta correlacion.
+
+la legibilidad y la comprensibilidad, tienen baja correlacion,es decir, que si un fragmento es legible, no quiere decir que sea comprensible.
+
+BIBLIOGRAFIA
+OK *[10] R. P. L. Buse and W. Weimer, “Learning a metric for code readability,” IEEE Transactions on Software Engineering, vol. 36, no. 4, pp. 546–558, 2010.
+ii * [11] D. Posnett, A. Hindle, and P. T. Devanbu, “A simpler model of software readability.” in 8th Working Conference on Mining Software Repositories, 2011, pp. 73–82.
+ii * [12] J. Dorn, “A general software readability model,” Master's thesis, University of Virginia, Department of Computer Science, https://www.cs.virginia.edu/{\~{}}weimer/students/dorn-mcs-paper.pdf, 2012.
+ii* [14] S. Scalabrino, M. Linares-V{\'{a}}squez, D. Poshyvanyk, and R. Oliveto, “Improving code readability models with textual features,” in 24th IEEE International Conference on Program Comprehension, 2016.},
+author = {Scalabrino, Simone and Bavota, Gabriele and Vendome, Christopher and Linares-Vasquez, Mario and Poshyvanyk, Denys and Oliveto, Rocco},
+booktitle = {2017 32nd IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+doi = {10.1109/ASE.2017.8115654},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/IEEE/scalabrino2017.pdf:pdf},
+isbn = {978-1-5386-2684-9},
+month = {oct},
+pages = {417--427},
+publisher = {IEEE},
+title = {{Automatically assessing code understandability: How far are we?}},
+url = {http://ieeexplore.ieee.org/document/8115654/},
+year = {2017}
+}
+@article{Buse2010,
+abstract = {In this paper, we explore the concept of code readability and investigate its relation to software quality. With data collected from 120 human annotators, we derive associations between a simple set of local code features and human notions of readability. Using those features, we construct an automated readability measure and show that it can be 80 percent effective and better than a human, on average, at predicting readability judgments. Furthermore, we show that this metric correlates strongly with three measures of software quality: code changes, automated defect reports, and defect log messages. We measure these correlations on over 2.2 million lines of code, as well as longitudinally, over many releases of selected projects. Finally, we discuss the implications of this study on programming language design and engineering practice. For example, our data suggest that comments, in and of themselves, are less important than simple blank lines to local judgments of readability},
+annote = {[10] BUSE
+
+metodo: coleccion de 120 anotadores humanos. construyen una medida de legibilidad automatica con 80{\%} de efectividad y mejor que un humnao promedio.
+
+correlacion con 3 medidas de calidad: cambios de codigo, reporte de defectos automatizado y mensajes de registro de defectos.
+
+readability (legibilidad): se define como la facilidad en la que un texto es comprendido. Es un factor de la mantenibilidad y a la vez tiene un papel fundamental en la calidad del software.
+
+mantenimiento consumira 70{\%} de el costo total del ciclo de vida de un producto de software.
+
+Otras investigaciones aseguran que el componente que mas tiempo consume en el mantenimiento, son las actividades relacionadas a la lectura del codigo. La legibilidad es independiente de la complejidad del codigo, pero en cambio, los cambios en legibilidad, si estan relacionados a los cambios en la densidad de defectos.
+
+METRICAS: identacion, nombres, comentarios.
+
+la automatizacion de metricas de legibilidad, ayudan a los desarrolladores a identificar mas rapido el codigo que no lo cumple; a los PM a monitorear y mantener la legibilidad; y como requerimiento para la aceptaci{\'{o}}n; asistir inspecciones.
+
+la legibilidad es una caracteristica determinante en la calidad del software
+
+METODOLOGIA DE ESTUDIO
+
+Proponen medir el codigo en porciones peque{\~{n}}as- llamados snippets{\textless}fragmentos{\textgreater} (7.7 LOC en promedio)(100 fragmentos en total) (no en el todo, ya que se mezclan otros factores). para lograr separar y determinar los factores mas predictivos en la legibilidad. a cada participante se le pidio evaluar individualmente cada fragmento y dar un puntaje de legibilidad.
+
+eliminan el contexto y complejidad, enfocandosen en los detalles de bajo nivel de la legibilidad.
+
+1) recoleccion de datos
+2) analisis
+
+* POLITICAS DE SELECCION DE SNIPPET:
+la legibilidad del codigo es muy diferente a de los lenguajes naturales. El codigo es altamente estructurado. Dise{\~{n}}aron una herramienta automatizada que extrae los fragmentos de programas Java, basado en politicas (corto, l{\'{o}}gicamente coherente).
+fragmentos obtenidos de 5 proyectos open source de dominios (temas) diferentes. tama{\~{n}}os en No de caracteres: 92 min, 260 mediano, 278.9 y max 577.
+* PUNTAJE DE LEGIBILIDAD: 
+usaron herramienta de anotacion web, donde los usuarios miraban los fragmentos y les daban una calificacion de legibilidad (1 a 5). en total se obtuvieron 12000 juicios (120 personas * 100 fragmentos).
+* PARTICIPACION: varios cursos de la universidad de virginia (una muestra por cada a{\~{n}}o: 1, 2 , 3 y 4 y graduados). dieron incentivos economicos, para promover la participacion.
+*RESULTADO ESTUDIOS
+se usa correlacion estadistica (1 perfecta correlacion y 0 no correlacion).
+1- cohen's, 2- kendall's, 3- pearson's, 4- Spearman's y 5- weighted.
+eligieron Spearman
+
+**MODELO DE LEGIBILIDAD
+con los datos obtenido, se evaluan para poder identificar cuales son las caracteristicas de codigo que son predictivas de legibilidad por los juicios humanos y asi construir un modelo que los haga de forma automatica.
+
+se crean algunas variables para determinar una medida, como: tama{\~{n}}o de linea en {\#} de caracteres, {\#} de ideintificadores, identacion, numeros, comentarios, spacion, operadores artimeticos, etc.
+
+asi se compara de acuerdo a las variables que tenga y al grupo que pertenezca como legible o no ( por los humanos) y se puede predecir al encontrar coincidencias en un nuevo codigo. Se usa la herramienta de aprendizaje automatico Weka. se usa la probabilidad de que un fragmentosea mas legible, como un puntaje de legibilidad. se usa la validacion 10-fold cross (validacion cruzada de k iteraciones)
+* DESEMPE{\~{N}}O DEL MODELO:
+- precision individual: estadistica f-measure, mide precision de clasificador con respecto a fragmentos mas legibles.
+- precision global: {\%} de fragmentos correctamente clasificados.
+--Clasificadores: multilayer perceptron, Bayesian Classifier, logistic Regression y Voting Feature Interval approach. en promedio clasificaron correctamente entre 75{\%} a 80{\%}. eligen el Bayesian, porque es mas eficiente en tiempo de ejecuci{\'{o}}n.
+
+resultados uniformes en los estudiantes de cada a{\~{n}}o, excepto los graduados (factores externos pueden ser).
+
+factores que son considerados importantes para predecir la legibilidad: longitud promedo de la linea y numero promedio de identificadores por linea
+
+**CORRELACION ENTRE LEGIBILIDAD CON CALIDAD DE SOFTWARE
+realizan el experimento para probar que hay correlacion del nuevo modelo con las convencionales metricas de calidad de software (FindBugs). encuentran alta correlacion: 0.6 a 0.8.
+- hay correlacion entre madurez de un proyecto y su legibilidad.
+
+METRICAS
+variables o factores de la metrica:
+- numero promedio de lineas en blanco
+- numero de identificadores y caracteres por linea
+
+PROBLEMAS
+- los participantes pertenecen a una misma institucion
+- factores aleatorios, como cansancio, experiencias individuales.
+
+TRABAJOS FUTUROS
+- ampliar el numero de juicios (pluri grupo)
+- ver si hay preferencias personales que afecten a los participantes para su veredicto de legibilidad
+- si un modelo general es util o es mejor uno especializado, de acuerdo al dominio del software.
+
+
+Su estudio consisti{\'{o}} en reunir un conjunto de juicios humanos, con respecto a la legibilidad de un grupo de fragmentos de software, previamente seleccionados. Posteriormente, utilizaron los datos para entrenar varios clasificadores por separado. Al realizar las pruebas de los clasificadores, se obtuvieron buenos resultados (aciertos iguales o mayores al 80{\%}), con los modelos perceptr{\'{o}}n multicapa (una red neuronal), el clasificador bayesiano (basado en las probabilidades condicionales de las caracter{\'{i}}sticas), una Regresi{\'{o}}n log{\'{i}}stica y el enfoque del Intervalo de la funci{\'{o}}n de votaci{\'{o}}n (basado en el "voto" ponderado entre las clasificaciones realizadas por cada funci{\'{o}}n por separado).},
+author = {Buse, Raymond P L and Weimer, Westley R},
+doi = {10.1109/TSE.2009.70},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Buse, Weimer - 2010 - Learning a Metric for Code Readability.pdf:pdf},
+issn = {0098-5589},
+journal = {IEEE Transactions on Software Engineering},
+keywords = {FindBugs,Software readability,code metrics,machine learning,program understanding,software maintenance},
+month = {jul},
+number = {4},
+pages = {546--558},
+title = {{Learning a Metric for Code Readability}},
+url = {http://ieeexplore.ieee.org/document/5332232/},
+volume = {36},
+year = {2010}
+}
+@inproceedings{Xu2017,
+abstract = {Source code readability is critical to software quality assurance and maintenance. In this paper, we present a novel approach to the automated measurement of source code readability based on Word Concreteness and Memory Retention (WCMR) of variable names. The approach considers programming and maintenance as processes of organizing variables and their operations to describe solutions to specific problems. The overall readability of given source code is calculated from the readability of all variables contained in the source code. The readability of each variable is determined by how easily its meaning is memorized (i.e., word concreteness) and how quickly they are forgotten over time (i.e., memory retention). Our empirical study has used 14 open source applications with over a half-million lines of code and 10,000 warning defects. The result shows that the WCMR-based source code readability negatively correlates strongly with overall warning defect rates, and particularly with such warning as bad programming practices, code vulnerability, and correctness bug warning.},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Xu, Weifeng and Xu, Dianxiang and Deng, Lin},
+booktitle = {2017 IEEE 41st Annual Computer Software and Applications Conference (COMPSAC)},
+doi = {10.1109/COMPSAC.2017.166},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/xu2017.pdf:pdf},
+isbn = {978-1-5386-0367-3},
+keywords = {CONCRECION DE PALABRAS,Code Readability,LEGIBILIDAD,METRICAS,MODELOS,Memory Retention,NOMBRES DE VARIABLE,RETENCION DE MEMORIA,Variable Definitions and References,WCMR,Word Concreteness},
+mendeley-tags = {CONCRECION DE PALABRAS,LEGIBILIDAD,METRICAS,MODELOS,NOMBRES DE VARIABLE,RETENCION DE MEMORIA,WCMR},
+month = {jul},
+pages = {33--38},
+publisher = {IEEE},
+title = {{Measurement of Source Code Readability Using Word Concreteness and Memory Retention of Variable Names}},
+url = {http://ieeexplore.ieee.org/document/8029587/},
+year = {2017}
+}
+@unpublished{AMAN2015,
+address = {Okayama, JAPON},
+annote = {SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric* ) )  AND  PUBYEAR  {\textgreater}  2014
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( PUBYEAR ,  2015 ) )  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+WoS
+Ecuaci{\'{o}}n:
+(ALL=(readability AND (software OR code) AND (metric* OR classification))) AND IDIOMA: (English OR Spanish)
+Refinado por: CATEGOR{\'{I}}AS DE WEB OF SCIENCE: ( COMPUTER SCIENCE SOFTWARE ENGINEERING OR COMPUTER SCIENCE INFORMATION SYSTEMS OR COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE OR COMPUTER SCIENCE THEORY METHODS OR COMPUTER SCIENCE INTERDISCIPLINARY APPLICATIONS OR ENGINEERING MULTIDISCIPLINARY )
+Per{\'{i}}odo de tiempo: 2015-2019.{\'{I}}ndices: SCI-EXPANDED, SSCI, A{\&}HCI, ESCI.
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {AMAN, Hirohisa and AMASAKI, Sousuke and SASAKI, Takashi and KAWAHARA, Minoru},
+booktitle = {IEICE Transactions on Information and Systems},
+doi = {10.1587/transinf.2015EDP7107},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/aman2015.pdf:pdf},
+issn = {0916-8532},
+keywords = {CARACTERISTICAS,COMENTARIOS,COMMENTS,FAULT-PRONE METHOD PREDICTION,JAVA,LCM,METRICAS,PRODUCT METRICS,REGRESSION MODEL},
+mendeley-tags = {CARACTERISTICAS,COMENTARIOS,JAVA,LCM,METRICAS},
+number = {12},
+pages = {2218--2228},
+title = {{Lines of Comments as a Noteworthy Metric for Analyzing Fault-Proneness in Methods}},
+url = {https://www.jstage.jst.go.jp/article/transinf/E98.D/12/E98.D{\_}2015EDP7107/{\_}article},
+volume = {E98.D},
+year = {2015}
+}
+@unpublished{Alawad2018,
+annote = {* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Alawad, Duaa and Panta, Manisha and Zibran, Minhaz and Islam, Rakibul},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/estudios problema/Duaa{\_}Paper{\_}Published.pdf:pdf},
+isbn = {9781943436132},
+keywords = {CARACTERISTICAS,COMPLEJIDAD,CONSTRUCCIONES DE CODIGO,EVOLUCION,LEGIBILIDAD,METRICAS,complexity,correlation,empirical study,feature ranking,machine learning,metrics,readability},
+mendeley-tags = {CARACTERISTICAS,COMPLEJIDAD,CONSTRUCCIONES DE CODIGO,EVOLUCION,LEGIBILIDAD,METRICAS},
+title = {{An Empirical Study of the Relationships between Code Readability and Software Complexity}},
+year = {2018}
+}
+@inproceedings{Frunzio2018,
+abstract = {Code metrics can be used to assess the internal quality of software systems, and in particular their adherence to good design principles. While providing hints about code quality, metrics are difficult to interpret. Indeed, they take a code component as input and assess a quality attribute (e.g., code readability) by providing a number as output. However, it might be unclear for developers whether that value should be considered good or bad for the specific code at hand. We present RETICULA (REal TIme Code qUaLity Assessment), a plugin for the IntelliJ IDE to assist developers in perceiving code quality during software development. RETICULA compares the quality metrics for a project (or a single class) under development in the IDE with those of similar open source systems (classes) previously analyzed. With the visualized results, developers can gain insights about the quality of their code. A video illustrating the features of RETICULA can be found at: https://reticulaplugin.github.io/.},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+SCOPUS
+Ecuaci{\'{o}}n:
+TITLE-ABS-KEY ( metric*  AND  code  AND  source  AND  readability )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric* ) )  AND  PUBYEAR  {\textgreater}  2014
+
+TITLE-ABS-KEY ( readab*  AND  software  AND  metric* )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+FUENTE:
+IEEE Xplore
+ECUACION:
+(readability AND ( software OR code ) AND ( metric* OR classification OR model*)) 
+ Filters Applied: 
+2015 - 2019
+Metadata Only
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Frunzio, Luigi and Lin, Bin and Lanza, Michele and Bavota, Gabriele},
+booktitle = {2018 IEEE 25th International Conference on Software Analysis, Evolution and Reengineering (SANER)},
+doi = {10.1109/SANER.2018.8330256},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/Google Scholar/franzio2018.pdf:pdf},
+isbn = {978-1-5386-4969-5},
+keywords = {CALIDAD,CARACTERISTICAS,HERRAMIENTA,JAVA,LEGIBILIDAD,METRICAS,RETICULA,TIEMPO REAL},
+mendeley-tags = {CALIDAD,CARACTERISTICAS,HERRAMIENTA,JAVA,LEGIBILIDAD,METRICAS,RETICULA,TIEMPO REAL},
+month = {mar},
+pages = {542--546},
+publisher = {IEEE},
+title = {{RETICULA: Real-time code quality assessment}},
+url = {https://ieeexplore.ieee.org/document/8330256/},
+year = {2018}
+}
+@article{Dorn,
+abstract = {—We present a generalizable formal model of soft-ware readability based on a human study of 5000 participants. Readability is fundamental to maintenance, but remains poorly understood. Previous models focused on symbol counts of small code snippets. By contrast, we approach code as read on screens by humans and propose to analyze visual, spatial and linguistic features, including structural patterns, sizes of code blocks, and verbal identifier content. We construct a readability metric based on these notions and show that it agrees with human judgments as well as they agree with each other and better than previous work. We identify universal features of readability and language-or experience-specific ones. Our metric also correlates with an external notion of defect density. We address multiple program-ming languages and different length samples, and evaluate using an order of magnitude more participants than previous work, all suggesting our model is more likely to generalize.},
+annote = {[13]DORN 
+
+5000 participantes (1800 con experiencia en la industria). Se realiz{\'{o}} un convocatoria, poniendo un aviso sobre la evaluacion en la red social de noticias reddit.
+
+propone enfocarse en la lectura de humanos en las pantallas, revisando factores como analisis visual, caracter{\'{i}}sticas espaciales y linguisticas, patrones estructurales, tama{\~{n}}o de bloques de codigo e identificador de contenido verbal.
+
+El modeo afirma ser mas general que los trabajos anteriores ( buse y posnett) por tener: mayor numero de participantes; adicionan varios lenguajes de programacion y los ejemplos tiene diferentes tama{\~{n}}os.
+
+Los desarrolladores gastan mas tiempo manteniendo y arreglando software existente que escribiendo nuevo codigo.
+
+La legibilidad, que es una nocion fundamental relacionada a la comprension de texto, es critical para el mantenimiento de software, donde la lectura del codigo es el primer paso.
+
+Knuth (1984), vi{\'{o}} la legibilidad como esencial para su noci{\'{o}}n de "Literate Programming", argument{\'{o}} que un programa deberia ser visto como "una pieza de literatura, dirigida a los seres humanos" y que un programa legible es "mas robusto, mas portable y m{\'{a}}s facil de mantener".
+
+Basili mostr{\'{o}} que las inspecciones guiadas por t{\'{e}}cnicas de lectura son mejores para revelar defectos.
+
+Haneef propone una grupo de desarrollo dedicado a la legibilidad y documentacion.
+
+metricas de legibilidad estan bien establecidas en el dominio del lenguaje natural (no software). Para el software estan bien establecidas en el dominio del Hipertexto.
+
+Se adicionan aspectos visuales, formatos geometricos que afectan la legibilidad.
+
+3 Lenguajes: Java, Python y CUDA
+360 fragmentos de codigo (de tama{\~{n}}os diferentes como 10, 30 y 50 lineas c/u)
+
+mostraron correlaci{\'{o}}n de legibilidad con la densidad de defectos.
+
+El modelo de Buse, interpreta como cero legibilidad un codigo, por tener unas lineas en blanco y otras largas; en otro ejemplo, el modelo da un 94{\%} de legibilidad, mientras que el puntaje de los participantes reflej{\'{o}} una baja legibilidad, por tener casi el 61{\%} del total de los caracteres en comentario, es decir, esta sobre comentado.
+
+Para mejorar los trabajos anteriores de Buse y Posnett, proponen mejoras originando un nuevo modelo que adiciona caracteristicas para capturar patrones estructurales, percepciones visuales, alineacion y nociones de lenguaje natural como puntuaci{\'{o}}n y sintaxis.
+
+we treat all such tokens as identifier, es una mejora porque captura mas semantica que el puro conteo de caracteres, sin requerir parseo formal (se consideran las reglas del lenguaje). Usa un diccionario para lenguaje natural usado en el codigo de desarrollo
+
+CARACTER{\'{I}}STICAS ADICIONADAS
+- caracteristicas de patrones estructurales: evalua caracteristicas visuales como la frecuencia en la longitud de la l{\'{i}}nea y espacios en blanco, usando la transformada discreta de Fourier DFT. 
+- caracateristica de percepci{\'{o}}n visual: El uso de colores en el codigo para diferenciar los elementos, mejora la legibilidad, y se toma en cuenta para las medidas de frecuencia de su aparicion (segun lo que representa cada color). 
+- Alineaci{\'{o}}n: los humanos alinean los elementos sintacticos para dar una estructura mas clara.
+- lenguaje natural: nombres de los identificadores, usen un prefijo o sufijo con una palabra conocida en ingles.
+- shallow syntax: conteo de caracteres de puntuaci{\'{o}}n; longitud de la linea, conteo de distintos identificadores, frecuencia de palabras clave, literales numericos y operadores.
+- modelo descriptivo formal: se construyen las m{\'{e}}tricas usando regresi{\'{o}}n log{\'{i}}stica.
+
+RESULTADOS
+- la metrica tiene una correlacion (spearman)con los juicios humanos 2.3 veces mejor que la metrica de Buse. Para evaluar la amenaza de validacion de el overfitting (existe en cualquier aplicacion de aprendizaje de maquina), se usa la validacion de cruce N-fold con N=10.
+- las caracteristicas sintacticas, contribuyeron significativamente al exito de la m{\'{e}}trica. el desempe{\~{n}}o mejoro.
+- al comparar con una herramienta de detecci{\'{o}}n de errores, se pudo encontrar que la detecci{\'{o}}n de defectos esta ligada a una baja legibilidad en el c{\'{o}}digo.
+- no todas las caracteristicas son universales para todos los lenguajes.
+- el factor que mas influye en la predicci{\'{o}}n de legibilidad es la longitud de linea, el cual podr{\'{i}}a tambien considerarse como factor universal en la legibilidad de casi todos los lenguajes.
+- la propuesta de tecnicas visuales y estructurales ayudan a generalizar la nocion de legibilidad.},
+author = {Dorn, Jonathan},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Dorn - Unknown - A General Software Readability Model.pdf:pdf},
+title = {{A General Software Readability Model}},
+url = {http://web.eecs.umich.edu/{~}weimerw/students/dorn-mcs-paper.pdf},
+year = {2012}
+}
+@article{Mi2018a,
+abstract = {Context: Code readability classification (which refers to classification of a piece of source code as either readable or unreadable) has attracted increasing concern in academia and industry. To construct accurate classification models, previous studies depended mainly upon handcrafted features. However, the manual feature engineering process is usually labor-intensive and can capture only partial information about the source code, which is likely to limit the model performance. Objective: To improve code readability classification, we propose the use of Convolutional Neural Networks (ConvNets).},
+annote = {WoS
+Ecuaci{\'{o}}n:
+
+(ALL=(readab* AND software)) AND IDIOMA: (English OR Spanish)
+
+(ALL=((metric* OR featur* OR factor* OR criteria* OR model*) AND (software OR "code source" OR program* OR algorithm) AND (readability))) AND IDIOMA: (English OR Spanish)
+
+(ALL=(readability AND (software OR code) AND (metric* OR classification))) AND IDIOMA: (English OR Spanish)
+Refinado por: CATEGOR{\'{I}}AS DE WEB OF SCIENCE: ( COMPUTER SCIENCE SOFTWARE ENGINEERING OR COMPUTER SCIENCE INFORMATION SYSTEMS OR COMPUTER SCIENCE ARTIFICIAL INTELLIGENCE OR COMPUTER SCIENCE THEORY METHODS OR COMPUTER SCIENCE INTERDISCIPLINARY APPLICATIONS OR ENGINEERING MULTIDISCIPLINARY )
+Per{\'{i}}odo de tiempo: 2015-2019.{\'{I}}ndices: SCI-EXPANDED, SSCI, A{\&}HCI, ESCI.
+
+SCOPUS
+Ecuaci{\'{o}}n: 
+TITLE-ABS-KEY ( readab* AND software ) AND PUBYEAR {\textgreater} 2014 AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+TITLE-ABS-KEY ( readability  AND  ( software  OR  code )  AND  ( metric*  OR  classification ) )  AND  PUBYEAR  {\textgreater}  2014  AND  ( LIMIT-TO ( SUBJAREA ,  "COMP" )  OR  LIMIT-TO ( SUBJAREA ,  "ENGI" ) )
+
+FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Mi, Qing and Keung, Jacky and Xiao, Yan and Mensah, Solomon and Gao, Yujin},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/mi2018{\_}manuscrito.pdf:pdf},
+journal = {Information and Software Technology},
+keywords = {APRENDIZAJE PROFUNDO,Code Readability,ConvNets,Convolutional Neural Network,Deep Learning,DeppCRM,EVOLUCION,Empirical Software Engineering,LEGIBILIDAD,MODELOS,Open Source Software,Program Comprehension,RED NEURONAL CONVOLUCIONAL},
+mendeley-tags = {APRENDIZAJE PROFUNDO,ConvNets,DeppCRM,EVOLUCION,LEGIBILIDAD,MODELOS,RED NEURONAL CONVOLUCIONAL},
+month = {dec},
+pages = {60--71},
+publisher = {Elsevier},
+title = {{Improving code readability classification using convolutional neural networks}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/S0950584918301496 https://www.sciencedirect.com/science/article/abs/pii/S0950584918301496},
+volume = {104},
+year = {2018}
+}
+@inproceedings{DosSantos2018,
+abstract = {Several conventions and standards aim to improve maintainability of software code. However, low levels of code readability perceived by developers still represent a barrier to their daily work. In this paper, we describe a survey that assessed the impact of a set of Java coding practices on the readability perceived by software developers. While some practices promoted an enhancement of readability, others did not show statistically significant effects. Interestingly, one of the practices worsened the readability. Our results may help to identify coding conventions with a positive impact on readability and, thus, guide the creation of coding standards.},
+address = {New York, New York, USA},
+annote = {Fuente: ACM
+Ecuaci{\'{o}}n: readab* AND software
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {dos Santos, Rodrigo Magalh{\~{a}}es and Gerosa, Marco Aur{\'{e}}lio},
+booktitle = {Proceedings of the 26th Conference on Program Comprehension - ICPC '18},
+doi = {10.1145/3196321.3196342},
+file = {:S$\backslash$:/MAESTRIA UNACIONAL/PROYECTO LEGIBILIDAD CODIGO FUENTE/TRABAJO FINAL/F2 - Recoleccion/dossantos2018.pdf:pdf},
+isbn = {9781450357142},
+keywords = {BUENAS PRACTICAS,CARACTERISTICAS,Code Comprehension,Code Readability,Coding Best Practices,JAVA,LEGIBILIDAD,Programming Style,Software Developers' Opinions Survey},
+mendeley-tags = {BUENAS PRACTICAS,CARACTERISTICAS,JAVA,LEGIBILIDAD},
+pages = {277--285},
+publisher = {ACM Press},
+title = {{Impacts of coding practices on readability}},
+url = {http://dl.acm.org/citation.cfm?doid=3196321.3196342},
+year = {2018}
+}
+@article{Pahal2017,
+abstract = {Various software metrics evaluate the complexity of software by using some physical software characteristics. Readability Metrics is exceptional amongst the present software complexity metrics for considering a non-physical software characteristics i.e. readability. Readability should be the key quality attributes for program source codes. The readability of the software is strongly associated to its maintainability, and is thus the crucial feature in whole quality of software. More the readable code, greater the chances of having easier to modify, less mistakes, more maintainable, easy to reuse, and more reliable. Readability is used to improve source codes for future preservation and extensibility. But code readability is not simply computable with a deterministic function. In this review paper, we will study various common readability metrics present in the literature such as Flesch-Kincaid metric, Gunning-Fog metric, SMOG index and Automated Readability Index (ARI) and how to calculate readability score metrics. Then we will relate the notion of code readability and examine its relation to software quality. Lastly, based on this review study, we will classify challenging issues for the future work of the code readability.},
+annote = {FUENTE:
+Google Scholar
+ECUACION:
+metric + readability + software + classification + "source code"
+FILTROS: desde a{\~{n}}o 2015 y hasta pagina 6
+
+* Filtro 1 - Cumple criterios de inclusion: SI},
+author = {Pahal, Ankit and Chillar, Rajender S},
+file = {:C$\backslash$:/Users/Sofia/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Pahal, Chillar - 2017 - Code Readability A Review of Metrics for Software Quality.pdf:pdf},
+journal = {International Journal of Computer Trends and Technology},
+keywords = {EVOLUCION,LEGIBILIDAD,METRICAS,code maintainability.,code readability,software engineering,software quality},
+mendeley-tags = {EVOLUCION,LEGIBILIDAD,METRICAS},
+number = {1},
+title = {{Code Readability: A Review of Metrics for Software Quality}},
+url = {http://www.ijcttjournal.org},
+volume = {46},
+year = {2017}
+}
